@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Tattoo Contest | Rock, Tatuagem e Cultura</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        imperial: {
+                            gold: '#f59e0b', // amber-500
+                            dark: '#18181b', // zinc-900
+                            black: '#09090b', // zinc-950
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar for a better look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706; 
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 0.95)), url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="bg-imperial-black text-white font-sans antialiased selection:bg-imperial-gold selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-imperial-black/90 backdrop-blur-md border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i data-lucide="skull" class="text-imperial-gold w-8 h-8"></i>
+                    <span class="font-display font-bold text-2xl tracking-wider text-white uppercase">Imperial<span class="text-imperial-gold">Tattoo</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#sobre" class="text-gray-300 hover:text-imperial-gold transition-colors font-medium text-sm uppercase tracking-wide">Sobre</a>
+                    <a href="#atracoes" class="text-gray-300 hover:text-imperial-gold transition-colors font-medium text-sm uppercase tracking-wide">Atrações</a>
+                    <a href="#oficinas" class="text-gray-300 hover:text-imperial-gold transition-colors font-medium text-sm uppercase tracking-wide">Oficinas</a>
+                    <a href="#local" class="text-gray-300 hover:text-imperial-gold transition-colors font-medium text-sm uppercase tracking-wide">Local</a>
+                    <a href="#ingressos" class="bg-imperial-gold text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-500 transition-colors uppercase tracking-wide text-sm">Garantir Ingresso</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-imperial-dark border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="#sobre" class="mobile-link text-gray-300 hover:text-imperial-gold block px-3 py-2 rounded-md text-base font-medium uppercase">Sobre</a>
+                <a href="#atracoes" class="mobile-link text-gray-300 hover:text-imperial-gold block px-3 py-2 rounded-md text-base font-medium uppercase">Atrações</a>
+                <a href="#oficinas" class="mobile-link text-gray-300 hover:text-imperial-gold block px-3 py-2 rounded-md text-base font-medium uppercase">Oficinas</a>
+                <a href="#local" class="mobile-link text-gray-300 hover:text-imperial-gold block px-3 py-2 rounded-md text-base font-medium uppercase">Local</a>
+                <a href="#ingressos" class="mobile-link w-full text-center mt-4 bg-imperial-gold text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition-colors uppercase">Ingressos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-imperial-black"></div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-imperial-gold/20 text-imperial-gold border border-imperial-gold/50 text-sm font-bold uppercase tracking-widest mb-6">
+                3 Dias de Imersão Cultural
+            </span>
+            <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white uppercase tracking-tight mb-6 leading-tight">
+                Imperial <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-imperial-gold to-yellow-300">Tattoo Contest</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-light">
+                O maior encontro de arte na pele e rock and roll independente de São Cristóvão. Um evento para toda a família!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#ingressos" class="w-full sm:w-auto px-8 py-4 bg-imperial-gold text-black font-bold rounded-full text-lg uppercase tracking-wide hover:bg-yellow-400 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                    <i data-lucide="ticket"></i> Ingressos Antecipados
+                </a>
+                <a href="#sobre" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full text-lg uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300">
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-imperial-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white uppercase"><span class="text-imperial-gold">Resgatando</span> a História</h2>
+                    <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                        O projeto Imperial Tattoo Contest nasce da vontade de democratizar o acesso ao entretenimento e suprir a carência de eventos culturais na região de São Cristóvão.
+                    </p>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        Localizado no espaço Vento Solar, somos vizinhos da Rua Ceará e do icônico espaço 'Garage' — o berço histórico do rock carioca. Nosso objetivo é celebrar essa cena roqueira e a arte da tatuagem, agregando valor cultural à região e proporcionando um ambiente seguro e acolhedor para <strong>todas as idades</strong>.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-2 border-imperial-gold pl-4">
+                            <h4 class="font-display text-2xl font-bold text-white mb-1">3</h4>
+                            <p class="text-gray-500 uppercase text-sm font-bold">Dias de Evento</p>
+                        </div>
+                        <div class="border-l-2 border-imperial-gold pl-4">
+                            <h4 class="font-display text-2xl font-bold text-white mb-1">9</h4>
+                            <p class="text-gray-500 uppercase text-sm font-bold">Bandas de Rock</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1542838686-37ed7a20c361?q=80&w=1000&auto=format&fit=crop" alt="" class="rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="absolute -bottom-6 -left-6 bg-imperial-dark p-6 rounded-lg border border-imperial-gold/30 shadow-xl hidden md:block">
+                        <p class="font-display text-xl font-bold text-imperial-gold uppercase">Classificação</p>
+                        <p class="text-3xl font-black text-white uppercase text-center mt-2">Livre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Grid -->
+    <section id="atracoes" class="py-24 bg-imperial-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-4">O que vai <span class="text-imperial-gold">rolar</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Uma infraestrutura completa montada para garantir muito entretenimento e conforto para você e sua família.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-imperial-black p-8 rounded-2xl border border-white/5 hover:border-imperial-gold/50 transition-colors group">
+                    <div class="w-14 h-14 bg-imperial-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mic-2" class="text-imperial-gold w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3 uppercase">9 Bandas Indie</h3>
+                    <p class="text-gray-400">Três shows por dia celebrando a cena do rock independente carioca com som e iluminação de primeira.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-imperial-black p-8 rounded-2xl border border-white/5 hover:border-imperial-gold/50 transition-colors group">
+                    <div class="w-14 h-14 bg-imperial-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="pen-tool" class="text-imperial-gold w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3 uppercase">Concurso Tattoo</h3>
+                    <p class="text-gray-400">Dezenas de tatuadores competindo em diversas categorias. Acompanhe a arte ganhando vida na pele.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-imperial-black p-8 rounded-2xl border border-white/5 hover:border-imperial-gold/50 transition-colors group">
+                    <div class="w-14 h-14 bg-imperial-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils-crossed" class="text-imperial-gold w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3 uppercase">Praça de Alimentação</h3>
+                    <p class="text-gray-400">Gastronomia variada, cerveja artesanal e opções acessíveis com cardápios de fácil leitura e alto contraste.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-imperial-black p-8 rounded-2xl border border-white/5 hover:border-imperial-gold/50 transition-colors group">
+                    <div class="w-14 h-14 bg-imperial-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="baby" class="text-imperial-gold w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-3 uppercase">Espaço Kids</h3>
+                    <p class="text-gray-400">Um ambiente seguro e divertido com recreação para os pequenos roqueiros enquanto os pais curtem o evento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social / Formative Actions -->
+    <section id="oficinas" class="py-24 bg-imperial-black border-t border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/3">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-4">Ações <br><span class="text-imperial-gold">Formativas</span></h2>
+                    <p class="text-gray-400 mb-8 text-lg">
+                        Como contrapartida social, o Imperial Tattoo Contest oferece atividades gratuitas para a comunidade ao longo dos três dias de evento. Vagas limitadas!
+                    </p>
+                    <button class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors uppercase text-sm tracking-wide w-full sm:w-auto">
+                        Inscreva-se Gratuitamente
+                    </button>
+                </div>
+                
+                <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Day 1 -->
+                    <div class="bg-imperial-dark p-6 rounded-xl border-l-4 border-imperial-gold relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-5">
+                            <i data-lucide="palette" class="w-32 h-32"></i>
+                        </div>
+                        <span class="text-imperial-gold font-bold text-sm uppercase tracking-wider block mb-2">Dia 1</span>
+                        <h4 class="font-display text-xl font-bold text-white mb-3 uppercase">Artes Visuais</h4>
+                        <p class="text-gray-400 text-sm">Oficina de introdução ao desenho e ilustração para jovens. Desperte o artista em você.</p>
+                    </div>
+                    <!-- Day 2 -->
+                    <div class="bg-imperial-dark p-6 rounded-xl border-l-4 border-imperial-gold relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-5">
+                            <i data-lucide="shield-check" class="w-32 h-32"></i>
+                        </div>
+                        <span class="text-imperial-gold font-bold text-sm uppercase tracking-wider block mb-2">Dia 2</span>
+                        <h4 class="font-display text-xl font-bold text-white mb-3 uppercase">Biossegurança</h4>
+                        <p class="text-gray-400 text-sm">Workshop sobre cuidados com a pele, higiene, assepsia e segurança na tatuagem profissional.</p>
+                    </div>
+                    <!-- Day 3 -->
+                    <div class="bg-imperial-dark p-6 rounded-xl border-l-4 border-imperial-gold relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-5">
+                            <i data-lucide="music" class="w-32 h-32"></i>
+                        </div>
+                        <span class="text-imperial-gold font-bold text-sm uppercase tracking-wider block mb-2">Dia 3</span>
+                        <h4 class="font-display text-xl font-bold text-white mb-3 uppercase">Vivência Musical</h4>
+                        <p class="text-gray-400 text-sm">Workshop prático: Como montar e produzir a sua própria banda de rock de garagem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Accessibility -->
+    <section id="local" class="py-24 bg-imperial-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-imperial-black rounded-3xl overflow-hidden border border-white/10 flex flex-col lg:flex-row">
+                <!-- Info -->
+                <div class="p-8 md:p-12 lg:w-1/2 flex flex-col justify-center">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white uppercase mb-6">Local & <span class="text-imperial-gold">Acessibilidade</span></h2>
+                    
+                    <div class="flex items-start gap-4 mb-6">
+                        <i data-lucide="map-pin" class="text-imperial-gold w-6 h-6 shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Espaço Vento Solar</h4>
+                            <p class="text-gray-400">Rua São Cristóvão, Rio de Janeiro - RJ<br>Próximo à lendária Rua Ceará.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mt-4 border-t border-white/10 pt-6">
+                        <h4 class="font-bold text-white uppercase text-sm tracking-widest mb-4">Compromisso com a Inclusão</h4>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="wheelchair" class="text-gray-400 w-5 h-5 shrink-0"></i>
+                            <span class="text-gray-300 text-sm">Rampas de acesso e banheiros adaptados</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="eye" class="text-gray-400 w-5 h-5 shrink-0"></i>
+                            <span class="text-gray-300 text-sm">Área reservada com boa visibilidade para shows</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="book-open" class="text-gray-400 w-5 h-5 shrink-0"></i>
+                            <span class="text-gray-300 text-sm">Cardápios em fontes ampliadas e alto contraste</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map Placeholder -->
+                <div class="lg:w-1/2 min-h-[300px] bg-zinc-800 relative group">
+                    <!-- Replace src with actual Google Maps Embed if needed -->
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" alt="">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <a href="#" class="bg-imperial-gold text-black px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform uppercase text-sm">
+                            <i data-lucide="navigation" class="w-4 h-4"></i> Como Chegar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Tickets -->
+    <section id="ingressos" class="py-24 hero-bg relative text-center">
+        <div class="absolute inset-0 bg-imperial-black/80"></div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4">
+            <h2 class="font-display text-4xl md:text-6xl font-bold text-white uppercase mb-6">Garanta sua <span class="text-imperial-gold">Presença</span></h2>
+            <p class="text-xl text-gray-300 mb-10">Venha fazer parte deste grande encontro da cultura rock e arte na pele em São Cristóvão.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button class="w-full sm:w-auto bg-imperial-gold text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-500 hover:scale-105 transition-all shadow-xl shadow-imperial-gold/20 uppercase tracking-widest">
+                    Comprar Ingressos
+                </button>
+                <button class="w-full sm:w-auto bg-transparent border-2 border-imperial-gold text-imperial-gold px-10 py-5 rounded-full font-bold text-lg hover:bg-imperial-gold hover:text-black hover:scale-105 transition-all uppercase tracking-widest">
+                    Inscrição Tatuadores
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="skull" class="text-imperial-gold w-6 h-6"></i>
+                <span class="font-display font-bold text-xl tracking-wider text-white uppercase">Imperial<span class="text-imperial-gold">Tattoo</span></span>
+            </div>
+            
+            <div class="text-gray-500 text-sm text-center md:text-left">
+                &copy; 2024 Imperial Tattoo Contest. Todos os direitos reservados.<br>
+                Projeto Cultural - Vento Solar, Rio de Janeiro.
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-imperial-dark flex items-center justify-center text-gray-400 hover:text-imperial-gold hover:bg-zinc-800 transition-colors">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-imperial-dark flex items-center justify-center text-gray-400 hover:text-imperial-gold hover:bg-zinc-800 transition-colors">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-imperial-dark flex items-center justify-center text-gray-400 hover:text-imperial-gold hover:bg-zinc-800 transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Change navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.classList.replace('bg-imperial-black/90', 'bg-black/95');
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.classList.replace('bg-black/95', 'bg-imperial-black/90');
+            }
+        });
+    </script>
+</body>
+</html>
